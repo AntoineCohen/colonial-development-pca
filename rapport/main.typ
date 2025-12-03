@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "template/lib.typ": *
 
 #set text(lang: "fr")
 
@@ -144,7 +144,7 @@ En réduisant l'espace à deux dimensions, nous perdons de la précision, mais l
 Le @tab:eigenvalues présente les valeurs propres, les pourcentages d'inertie et les pourcentages cumulés pour les 10 premières composantes principales. Le pourcentage d'inertie représente la part de l'information totale captée par chaque axe. Le pourcentage cumulé indique la part d'information captée par les _n_ premiers axes.
 
 #figure(
-  image("assets/images/02_valeurs_propres.png", width: 85%),
+  image("figures/02_valeurs_propres.png", width: 85%),
   caption: [Graphique des valeurs propres (Scree Plot)]
 ) <fig:scree>
 
@@ -155,7 +155,7 @@ Dans notre cas, on observe un coude net après le quatrième axe, confirmant le 
 Le premier axe factoriel (première composante principale) capte toujours le plus d'information. Du fait de l'emboîtement des solutions, les axes suivants captent l'information qui n'a pas déjà été captée par les axes précédents.
 
 #figure(
-  image("assets/images/03_inertie_cumulee.png", width: 85%),
+  image("figures/03_inertie_cumulee.png", width: 85%),
   caption: [Inertie cumulée]
 ) <fig:inertie>
 
@@ -200,7 +200,7 @@ Le @tab:contrib-axe1 présente les contributions des variables au premier axe fa
 La contribution totale de toutes les variables à un axe est de 100%. Une variable contribuant à plus de 10% est considérée comme fortement contributive. Les variables avec une contribution faible (< 5%) sont moins importantes pour l'axe mais peuvent néanmoins apporter des informations complémentaires.
 
 // #figure(
-//   image("assets/images/04_contributions_variables_12.png", width: 85%),
+//   image("figures/04_contributions_variables_12.png", width: 85%),
 //   caption: [Contributions des variables aux axes 1 et 2]
 // ) <fig:contrib-var>
 
@@ -221,7 +221,7 @@ Le premier axe oppose principalement :
 *Conclusion :* Le premier axe peut être interprété comme un axe de développement économique et institutionnel, opposant les pays développés aux institutions solides aux pays en développement aux institutions fragiles. Cette dimension confirme les travaux d'Acemoglu et al. (2001) sur l'importance des institutions dans le développement. L'axe révèle une cohérence forte entre développement économique, qualité des institutions, héritage colonial et géographie.
 
 #figure(
-  image("assets/images/06_cercle_correlations_12.png", width: 90%),
+  image("figures/06_cercle_correlations_12.png", width: 90%),
   caption: [Cercle des corrélations - Plan 1-2]
 ) <fig:cercle12>
 
@@ -274,7 +274,7 @@ Le deuxième axe oppose principalement :
 *Conclusion :* Le deuxième axe peut être interprété comme un axe de densité démographique et de taille territoriale, opposant les petits pays densément peuplés aux grands pays faiblement peuplés. Cette dimension est indépendante du développement économique (axe 1), révélant que la densité démographique constitue une dimension structurelle distincte du niveau de développement.
 
 #figure(
-  image("assets/images/11_biplot_12.png", width: 95%),
+  image("figures/11_biplot_12.png", width: 95%),
   caption: [Biplot - Plan 1-2]
 ) <fig:biplot>
 
@@ -345,7 +345,7 @@ Ainsi, cela va nous permettre de savoir si tel pays a un profil de développemen
 *Interprétation :* Singapore est le pays le plus contributeur à l'axe 2 (45.34%), représentant le pôle "petit pays très densément peuplé et développé". Hong Kong contribue également fortement (26.80%), confirmant cette interprétation.
 
 // #figure(
-//   image("assets/images/08_contributions_individus_12.png", width: 85%),
+//   image("figures/08_contributions_individus_12.png", width: 85%),
 //   caption: [Contributions des individus aux axes 1 et 2]
 // ) <fig:contrib-ind>
 
@@ -354,7 +354,7 @@ Ainsi, cela va nous permettre de savoir si tel pays a un profil de développemen
 Les individus avec un cos² total supérieur à 0,5 sur le plan 1-2 sont considérés comme bien représentés. Les individus avec un cos² inférieur à 0,2 sont considérés comme mal représentés.
 
 #figure(
-  image("assets/images/09_individus_plan_12_cos2.png", width: 95%),
+  image("figures/09_individus_plan_12_cos2.png", width: 95%),
   caption: [Graphique des individus - Plan 1-2 (qualité de représentation)]
 ) <fig:ind-cos2>
 
@@ -363,7 +363,7 @@ Ce graphique (@fig:ind-cos2) représente les pays dans le plan factoriel 1-2, co
 Seuls les pays avec cos² > 0,3 sont étiquetés pour améliorer la lisibilité. Ce graphique permet d'identifier visuellement les pays dont la position sur le plan 1-2 est fiable (bien représentés) et ceux pour lesquels l'interprétation doit être prudente (mal représentés). Les pays mal représentés nécessitent l'examen des axes 3 et 4 pour une compréhension complète.
 
 #figure(
-  image("assets/images/10_individus_plan_12_contrib.png", width: 95%),
+  image("figures/10_individus_plan_12_contrib.png", width: 95%),
   caption: [Graphique des individus - Plan 1-2 (contributions)]
 ) <fig:ind-contrib>
 
@@ -507,7 +507,7 @@ Ces variables sont fortement corrélées aux axes 1 et 2 et participent activeme
 Ces variables sont faiblement corrélées aux axes 1 et 2 et apportent peu d'information pour l'interprétation de ces axes. Elles peuvent être mieux représentées sur les axes 3 et 4, ou nécessiter une analyse spécifique. 
 
 #figure(
-  image("assets/images/13_individus_par_continent.png", width: 95%),
+  image("figures/13_individus_par_continent.png", width: 95%),
   caption: [Graphique des individus par continent]
 ) <fig:ind-continent>
 
@@ -516,7 +516,7 @@ Ce graphique (@fig:ind-continent) représente les pays dans le plan factoriel 1-
 Ce graphique révèle des structurations géographiques : les pays d'Afrique tendent à se regrouper dans le quadrant inférieur gauche (faible développement), tandis que les pays d'Amérique du Nord et d'Océanie se situent dans le quadrant supérieur droit (développement élevé). Les ellipses permettent d'identifier visuellement les continents homogènes et ceux présentant une grande variabilité interne.
 
 #figure(
-  image("assets/images/14_individus_par_hemisphere.png", width: 95%),
+  image("figures/14_individus_par_hemisphere.png", width: 95%),
   caption: [Graphique des individus par hémisphère]
 ) <fig:ind-hemisphere>
 
@@ -581,7 +581,7 @@ Cet axe révèle que les conditions de colonisation (mortalité des colons, pré
 - _Pôle négatif (mortalité faible) :_ Canada, USA, Australie, Nouvelle-Zélande - Zones tempérées où les colons ont pu s'établir durablement, développant des institutions inclusives.
 
 #figure(
-  image("assets/images/07_cercle_correlations_34.png", width: 90%),
+  image("figures/07_cercle_correlations_34.png", width: 90%),
   caption: [Cercle des corrélations - Plan 3-4]
 ) <fig:cercle34>
 
@@ -590,7 +590,7 @@ Le cercle des corrélations pour le plan 3-4 (@fig:cercle34) représente les var
 Ce graphique permet d'identifier les variables qui structurent ces axes secondaires et de comprendre les dimensions supplémentaires capturées par l'analyse.
 
 #figure(
-  image("assets/images/12_individus_plan_34.png", width: 95%),
+  image("figures/12_individus_plan_34.png", width: 95%),
   caption: [Graphique des individus - Plan 3-4]
 ) <fig:ind-plan34>
 
@@ -599,7 +599,7 @@ Ce graphique (@fig:ind-plan34) représente les pays dans le plan factoriel 3-4, 
 Ce graphique est particulièrement utile pour comprendre la position des pays mal représentés sur le plan 1-2, car ces pays peuvent être mieux représentés sur les axes 3 et 4. L'examen de ce plan permet d'identifier des structures supplémentaires non capturées par les deux premiers axes.
 
 #figure(
-  image("assets/images/15_variables_avec_illustratives_quanti.png", width: 95%),
+  image("figures/15_variables_avec_illustratives_quanti.png", width: 95%),
   caption: [Variables avec illustratives quantitatives]
 ) <fig:var-illustratives>
 
@@ -608,7 +608,7 @@ Ce graphique (@fig:var-illustratives) superpose les variables actives (flèches 
 Il permet de visualiser comment ces variables historiques se positionnent par rapport aux variables actives, révélant leur corrélation avec les dimensions identifiées. La variable `neoeuro` se positionne clairement dans le quadrant supérieur droit, confirmant le modèle des colonies de peuplement d'Acemoglu et al. (2001).
 
 // #figure(
-//   image("assets/images/16_categories_illustratives.png", width: 95%),
+//   image("figures/16_categories_illustratives.png", width: 95%),
 //   caption: [Catégories des variables illustratives qualitatives]
 // ) <fig:categories>
 

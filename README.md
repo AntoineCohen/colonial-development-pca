@@ -2,6 +2,23 @@
 
 Principal Component Analysis applied to 64 formerly colonized countries to identify the structural dimensions of comparative development, interpreted through Acemoglu, Johnson & Robinson's (2001) institutional framework.
 
+**[View report (PDF)](rapport/rapport.pdf)**
+
+---
+
+## Figures
+
+<table>
+  <tr>
+    <td width="50%" align="center"><sub>Correlation circle — PC1 &amp; PC2</sub><br/><img src="rapport/figures/06_cercle_correlations_12.png" width="100%"/></td>
+    <td width="50%" align="center"><sub>Individuals by continent — PC1 &amp; PC2</sub><br/><img src="rapport/figures/13_individus_par_continent.png" width="100%"/></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><sub>Biplot — variables &amp; individuals</sub><br/><img src="rapport/figures/11_biplot_12.png" width="100%"/></td>
+    <td width="50%" align="center"><sub>Correlation matrix</sub><br/><img src="rapport/figures/01_matrice_correlation.png" width="100%"/></td>
+  </tr>
+</table>
+
 ---
 
 ## Research question
@@ -79,49 +96,7 @@ Driven by settler mortality `mort0` (53.7%) and malaria prevalence `malfal94` (1
 
 ---
 
-## Limitations
-
-- PCA identifies correlational structure, not causal mechanisms. The institutional interpretation draws on external theory (Acemoglu et al., 2001) and cannot be inferred from the PCA alone.
-- The 64-country sample covers formerly colonized societies; results are not generalizable to non-colonial development trajectories.
-- Data represent a single cross-section and do not capture convergence dynamics or structural breaks.
-- Several potentially relevant variables are absent: human capital, trade openness, natural resource endowments, and contemporary political stability.
-- 26.6% of countries are poorly represented on the main factorial plane, indicating that four dimensions do not fully capture development heterogeneity.
-- The analysis reduces each country's history to its colonial experience, ignoring pre-colonial structures.
-
----
-
-## Repository structure
-
-```
-.
-├── README.md                        # This file
-├── .gitignore
-├── dm.R                             # Full PCA analysis script
-├── df_DM_2025_ADD.csv               # Dataset (64 countries × 17 variables)
-├── results/                         # Numerical output (created by dm.R)
-│   ├── valeurs_propres.csv
-│   ├── coordonnees_variables.csv
-│   ├── contributions_variables_12.csv
-│   ├── contributions_variables_34.csv
-│   ├── cos2_variables_12.csv
-│   ├── coordonnees_individus_12.csv
-│   ├── contributions_individus_12.csv
-│   ├── cos2_individus_12.csv
-│   └── cos2_individus_34.csv
-└── rapport/
-    ├── lib.typ                      # Typst template library ('Ilm)
-    ├── typst.toml                   # Typst package configuration
-    └── template/
-        ├── main.typ                 # Report source (Typst)
-        ├── refs.bib                 # Bibliography
-        ├── rapport.pdf              # Compiled report
-        └── assets/images/          # Figures — written here by dm.R,
-                                    #   referenced directly by main.typ
-```
-
----
-
-## How to reproduce
+## Quick start
 
 **R version:** 4.3 or later
 **Required packages:**
@@ -134,18 +109,52 @@ install.packages(c("corrplot", "dplyr", "FactoMineR", "factoextra",
 **Run order:**
 
 1. Open an R session with the working directory set to the project root (or use RStudio with the project file).
-2. Source `dm.R`. The script will create `RésultatsDM/` and populate it with all figures and tables.
+2. Source `dm.R`. The script will create `results/` and populate it with all tables.
 
 ```r
 source("dm.R")
 ```
 
-The written report (`rapport/template/main.typ`) is compiled with [Typst](https://typst.app). With Typst installed:
+The written report (`rapport/main.typ`) is compiled with [Typst](https://typst.app). With Typst installed:
 
 ```sh
-typst compile rapport/template/main.typ rapport/template/rapport.pdf
+cd rapport && typst compile main.typ
 ```
 
 ---
 
-*Data analysis project — Université Catholique de Lille, S5, December 2025. Group project: Antoine C., Noah D.-G., Jules D., Hans P.. Grade: 19/20.*
+## Limitations
+
+- PCA identifies correlational structure, not causal mechanisms. The institutional interpretation draws on external theory (Acemoglu et al., 2001) and cannot be inferred from the PCA alone.
+- The 64-country sample covers formerly colonized societies; results are not generalizable to non-colonial development trajectories.
+- Data represent a single cross-section and do not capture convergence dynamics or structural breaks.
+- Several potentially relevant variables are absent: human capital, trade openness, natural resource endowments, and contemporary political stability.
+- 26.6% of countries are poorly represented on the main factorial plane, indicating that four dimensions do not fully capture development heterogeneity.
+- The analysis reduces each country's history to its colonial experience, ignoring pre-colonial structures.
+
+---
+
+## Project structure
+
+```
+.
+├── README.md                        # This file
+├── .gitignore
+├── dm.R                             # Full PCA analysis script
+├── df_DM_2025_ADD.csv               # Dataset (64 countries × 17 variables)
+├── results/                         # Generated by dm.R — eigenvalues, coordinates,
+│                                    #   contributions and cos² per axis (CSV, gitignored)
+└── rapport/
+    ├── main.typ                     # Report source (Typst)
+    ├── refs.bib                     # Bibliography
+    ├── rapport.pdf                  # Compiled report
+    ├── figures/                     # 16 PNG figures — generated by dm.R
+    └── template/
+        ├── lib.typ                  # Typst template library ('Ilm)
+        └── typst.toml               # Typst package configuration
+```
+
+---
+
+*Analyse de données — Antoine C. · Noah D.-G. · Jules D. · Hans P. | Grade: 19/20 | S5, Université Catholique de Lille*
+

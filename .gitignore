@@ -2,6 +2,11 @@
 .Rhistory
 .RData
 .Rproj.user/
+*.Rout
+Rplots.pdf
+
+# Generated outputs — reproduce by sourcing dm.R
+results/*.csv
 
 # Claude Code
 .claude/

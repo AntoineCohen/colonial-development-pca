@@ -1,10 +1,9 @@
 # Purpose    : PCA on determinants of development across 64 formerly colonized
-#              countries — produces figures written directly to the report's
-#              assets folder and summary tables written to results/
+#              countries, interpreted through Acemoglu, Johnson & Robinson (2001)
 # Data source: df_DM_2025_ADD.csv — cross-sectional dataset combining
 #              institutional, economic, demographic and geographic indicators
 #              drawn from Acemoglu, Johnson & Robinson (2001) and related sources
-# Output     : 16 PNG figures → rapport/template/assets/images/
+# Output     : 16 PNG figures → rapport/figures/
 #              9 CSV tables   → results/
 # Author     : Antoine C., Noah D.-G., Jules D., Hans P.
 # Date       : 2025-12
@@ -25,9 +24,10 @@ library(readr)       # Lecture des fichiers CSV
 # 2. CHARGEMENT ET EXPLORATION DES DONNÉES
 # ----------------------------------------------------------------------------
 
-dossier_figures   <- here("rapport", "template", "assets", "images")
+dossier_figures   <- here("rapport", "figures")
 dossier_resultats <- here("results")
 if (!dir.exists(dossier_resultats)) dir.create(dossier_resultats, recursive = TRUE)
+if (!dir.exists(dossier_figures))   dir.create(dossier_figures,   recursive = TRUE)
 
 df_brut <- read_csv(here("df_DM_2025_ADD.csv"), show_col_types = FALSE)
 
